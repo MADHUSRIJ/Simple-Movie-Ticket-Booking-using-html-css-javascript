@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Movie Seat Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style>
+      
+    </style>
+  </head>
+  <body>
+    <div id="film">
+      <nav>
+          <div class="logo">
+              <img src="Images/logo.jpg">
+          </div>
+          <div class="nav-links">
+              <ul>
+                  <li><a href="#">HOME</a></li>
+                  <li><a href="#">MY BOOKINGS</a></li>
+                  <li><a href="#">MOVIES ONLINE</a></li>
+                  <li><a href="#">DOWNLOAD APP</a></li>
+              </ul>
+          </div>
+          <a href="#" class="button">Sign in</a>
+          <a href="#" class="button">Location</a>
+      </nav>     
+  </div>
+    
+  <div class="page1">
+    <div class="search">
+                    
+      <input type="text" placeholder="Search for movies you love!" name="search">
+      <i class="fa fa-search"></i>
+    
+</div>
+<div class="box">
+  NAME &nbsp;  :  &nbsp; <input type="text" id="name" required>
+</div>
+    <div class="movie-container">
+      <label">PICK A MOVIE &nbsp; :</label>
+      <select id="movie">
+        <option value="10">Imaikkaa Nodigal ($10)</option>
+        <option value="12">8 Thottakkal ($12)</option>
+        <option value="8">Balloon ($8)</option>
+      </select>
+    </div>
+
+    
+      <ul class="showcase">
+        <li>
+          <div id="seat" class="seat"></div>
+          <small class="status" style="font-size: 1em;">N/A</small>
+        </li>
+        <li>
+          <div id="seat" class="seat selected"></div>
+          <small class="status" style="font-size: 1em;">Selected</small>
+        </li>
+        <li>
+          <div id="seat" class="seat occupied"></div>
+          <small class="status" style="font-size: 1em;">Occupied</small>
+        </li>
+      </ul>
+  
+      <div class="container">
+        <div class="screen">SCREEN</div>
+     <div class="seat1">
+        <div class="row">
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+        </div>
+        <div class="row">
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+        </div>
+        <div class="row">
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat occupied"></div>
+        </div>
+        <div class="row">
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+        </div>
+        <div class="row">
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+        </div>
+        <div class="row">
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat occupied"></div>
+          <div id="seat" class="seat"></div>
+        </div>
+      </div>
+    </div>
+      <button class="btn" id="btn">Confirm Booking</button>
+  </div>
+    
+  <div class="page">
+    <div class="show">
+        <div class="slide">
+            <img src="Images/1.jpg" style="width: 100%;">
+        </div>
+        <div class="slide">
+            <img src="Images/2.jpg" style="width: 100%;">
+        </div>
+        <div class="slide">
+            <img src="Images/3.jpg" style="width: 100%;">
+        </div>
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
+        
+        <h1>SELECT YOUR SEAT HERE &nbsp;&nbsp;&#10095;</h1>
+    </div>   
+    <p class="text"></p>
+    <script>
+      var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("slide");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); 
+}
+      var count=0;
+      var seats=document.getElementsByClassName("seat");
+      for(var i=0;i<seats.length;i++){
+        var item=seats[i];
+        
+        item.addEventListener("click",(event)=>{
+          var price= document.getElementById("movie").value;
+
+          if (!event.target.classList.contains('occupied') && !event.target.classList.contains('selected') ){
+          count++;
+          
+          event.target.classList.add("selected");
+
+          }
+        })
+
+        var a = document.getElementById('btn');
+        a.onclick = function aler()
+        {
+          if(count == 0)
+          {
+            alert("Please Select Seats !");
+          }
+          else{
+            alert("Your Booking of has been Confirmed");
+            window.location = 'index.html';
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
